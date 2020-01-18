@@ -1,0 +1,19 @@
+.pokemon-list {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    //grid-template-columns: repeat(3, auto);
+}
+
+@media only screen and (min-width: 768px) {
+    .pokemon-list {padding: 0 80px;}
+}
+
+@media only screen and (max-width: 767px) {
+    .pokemon-list {padding: 0 30px;}
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    .pokemon-list {padding: 0 10px;}
+}

@@ -1,0 +1,74 @@
+@import './sizes';
+
+@font-face {
+    font-family: 'gba-font';
+    src: url('../fonts/gba-font.ttf');
+}
+
+.card {
+    min-width: $card-width;
+    min-height: $card-height;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.5);
+    border-radius: $card-radius;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.8);
+    transition: .1s;
+
+    .card-footer {
+        background-color: rgb(75, 75, 75);
+        color: white;
+        transition: .1s;
+    }
+}
+
+.card-body {
+    background-color: white;
+    height: $card-height - $card-footer;
+    border-radius: $card-radius $card-radius 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-body-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body-types {
+    //background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-body-number {
+    align-self: flex-end;
+    margin-bottom: 5px;
+}
+
+.card-body-number span{
+    font-size: 12px;
+    text-align: right;
+}
+
+.card-footer {
+    background-color: rgb(221, 221, 221);
+    display: flex;
+    height: $card-footer;
+    font-family: gba-font;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 $card-radius $card-radius;
+    padding: 0 3px;
+}
