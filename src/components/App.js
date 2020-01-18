@@ -6,10 +6,10 @@ import InfoPanel from './InfoPanel';
 import Card from './Card';
 import Store from '../store/store';
 
-const pokedexHeader = require('../img/dibujo.svg');
-const pokedexHeader2 = require('../img/dibujo-recto.svg');
+const headerLogo = require('../img/logo_transparent.svg');
+//const pokedexHeader2 = require('../img/dibujo-recto.svg');
 const yellowArrow = require('../img/yellow-arrow.svg');
-const pokemonsFullList = require('../data/pokemons.json');
+//const pokemonsFullList = require('../data/pokemons.json');
 
 class App extends Component {
   constructor(props) {
@@ -21,8 +21,6 @@ class App extends Component {
     }
 
     console.log(this.state.pokemons);
-
-    const test = store.test;
   }
 
   addPokemon = () => {
@@ -33,8 +31,8 @@ class App extends Component {
     return (
       <div className="app">
         <div className="header">
-          <img src={pokedexHeader2} alt="pokedex-header"/>
-          <div className="header-fake-panel"></div>
+          <img src={headerLogo} alt="pokedex-header"/>
+          {/* <div className="header-fake-panel"></div> */}
         </div>
         <div className="body">
           <div className="search-panel">
