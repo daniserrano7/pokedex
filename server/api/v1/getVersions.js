@@ -26,8 +26,8 @@ router.get('/versions', (req, res) => {
         rows.forEach(row => {
             let isGen = result.find(element => element.gen == row.gen);
             let versionData = {
-                identifier: row.identifier,
-                version: row.version
+                id: row.identifier,
+                name: row.version
             };
 
             if (isGen) {isGen.versions.push(versionData);} 

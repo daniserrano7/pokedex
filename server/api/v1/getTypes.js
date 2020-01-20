@@ -4,7 +4,7 @@ router.get('/types', (req, res) => {
     const query = {
         text: `
             SELECT
-                types.identifier,
+                types.identifier as id,
                 type_names.name
             FROM
                 types

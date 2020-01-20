@@ -32,6 +32,7 @@ router.get('/pokemons', (req, res) => {
             LEFT JOIN languages lang_type2 ON lang_type2.id = tn2.local_language_id
             
             WHERE lang_type2.identifier = $lang OR lang_type2.identifier IS NULL
+            LIMIT 10
             ;
         `,
         params: {
@@ -48,8 +49,8 @@ router.get('/pokemons', (req, res) => {
             types: []
         };
 
-        if (row.type_identifier_1) {element.types.push({type: row.type_identifier_1, desc: row.type_name_1})}
-        if (row.type_identifier_2) {element.types.push({type: row.type_identifier_2, desc: row.type_name_2})}
+        if (row.type_identifier_1) {element.types.push({id: row.type_identifier_1, name: row.type_name_1})}
+        if (row.type_identifier_2) {element.types.push({id: row.type_identifier_2, name: row.type_name_2})}
 
         result.push(element);
     }, (err, rows) => {
