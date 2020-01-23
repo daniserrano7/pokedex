@@ -10,25 +10,25 @@ class DropupPanel extends Component {
         this.state = {
             visible: props.visible
         }
+
+        console.log(this.props.store.dropupPanel)
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({visible: nextProps.visible});  
     }
 
-    toggleModal = () => {
-        this.setState({visible: false});
+    closeModal = () => {
+        this.props.parentCallback(false)
     }
 
     selectOption = (option) => {
-        console.log(option.id);
         this.props.store.setType(option.id);
-        this.toggleModal();
+        this.closeModal();
     }
 
     render() {
         return (
-            <div className={`dropup-panel-modal ${this.state.visible && 'show-modal'}`} onClick={this.toggleModal}>
+            <div className={`dropup-panel-modal ${this.props.visible && 'show-modal'}`} onClick={this.closeModal}>
                 <div className="dropup-panel" onClick={e => e.stopPropagation()}>
                     {this.props.elements.map(element => {
                         return (

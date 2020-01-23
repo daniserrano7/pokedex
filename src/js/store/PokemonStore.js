@@ -7,12 +7,9 @@ class PokemonStore {
     types = []
     type = ''
     lang = 'es'
-    filterByType(typeFilter) {
-        return this.pokemons.filter(pokemon => pokemon.types.find(type => type.name === 'fire'));
-        //return this.pokemons[0]
-    }
+    dropupPanel = false
     get getPokemons() {
-        return this.pokemons.filter(pokemon => pokemon.types.find(type => type.id === this.type || 1 === 1))
+        return this.pokemons.filter(pokemon => pokemon.types.find(type => type.id === this.type || this.type === ''))
     }
 
     setType(typename) {
@@ -27,6 +24,7 @@ decorate(PokemonStore, {
     types: observable,
     type: observable,
     lang: observable,
+    toggleDropupPanel: action,
     filterByType: action,
     getPokemons: computed,
     setType: action

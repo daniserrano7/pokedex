@@ -4,6 +4,7 @@ import '../../styles/PokemonList.scss';
 
 //Components
 import Card from './Card';
+import Type from './Type';
 import DropupPanel from './DropupPanel';
 
 //Store
@@ -60,15 +61,26 @@ class PokemonList extends Component {
             .then(data => {store.pokemons = data; console.log(data)});
     }
 
-    togglePanel = () => {
+    panelCallback = (state) => {
+        this.setState({panel: state});
+    }
+
+    openPanel = () => {
         this.setState({panel: true});
+    }
+
+    selectVersion = () => {
+        store.version = 'crystal';
+        store.gen = 'gen-2';
+        this.renderPokemons();
     }
 
     render() {
         return (
             <div className="pokemon-list">
                 <div className="pokemon-list-filter">
-                    <button onClick={this.togglePanel}>Show Types</button>
+                    <Type type={{id: 'fire', name: 'Fuego'}} onClick={this.openPanel}/>
+                    <button onClick={this.selectVersion}>Select version</button>
                 </div>
                 <div className="pokemon-list-content">
                     {store.pokemons.length > 0 && store.getPokemons.map(pokemon => {
@@ -80,7 +92,7 @@ class PokemonList extends Component {
                         />)
                     })}
                 </div>
-                {<DropupPanel elements={store.types} store={store} visible={this.state.panel}/>}
+                {<DropupPanel elements={store.types} store={store} visible={this.state.panel} parentCallback={this.panelCallback}/>}
             </div>
         )
     }

@@ -32,7 +32,7 @@ router.get('/pokemons', (req, res) => {
             LEFT JOIN languages lang_type2 ON lang_type2.id = tn2.local_language_id
             
             WHERE lang_type2.identifier = $lang OR lang_type2.identifier IS NULL
-            LIMIT 10
+            --LIMIT 10
             ;
         `,
         params: {
