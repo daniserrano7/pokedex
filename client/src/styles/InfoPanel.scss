@@ -1,0 +1,14 @@
+.browser-panel {
+    position: fixed;
+    bottom: 10px;
+    left: -100%;
+    transform: translateX(-50%);
+    background-color: blue;
+    height: 70%;
+    width: calc(100% - 60px);
+    transition: .3s ease-in-out;
+}
+
+.show-panel {
+    left: 50%;
+}

@@ -1,0 +1,51 @@
+@import './colors';
+
+$header-height: 80px;
+
+.app {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app .header {
+  min-height: $header-height;
+  background-color: $primary;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid black;
+
+  img {
+    height: 60px;
+    //margin: 10px 0 0 10px;
+    padding: 10px 10px;
+  }
+}
+
+.app .body {
+  flex-grow: 1;
+  background-color: salmon;
+}
+
+.app .body .main {
+  height: 100%;
+  background-color: blue;
+}
+
+.app .body .menu-button-container {
+  position: absolute;
+  left: 10px;
+  bottom: 30px;
+}
+
+.app .body .menu {
+  position: absolute;
+  bottom: 60px;
+  left: -100%;
+  background-color: blue;
+  transition: .3s;
+}
+
+.app .body .show-menu {
+  left: 10px
+}
